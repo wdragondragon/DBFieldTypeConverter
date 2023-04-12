@@ -28,6 +28,20 @@ public class DMHelper extends DriverHelper {
 
     @Override
     public String getFullTypeCreateSql() {
-        return "";
+        return "CREATE TABLE \"FULL_TYPE\" \n" +
+                "   (\t\"ID\" NUMBER, \n" +
+                "\t\"T_INTEGER\" NUMBER(*,0), \n" +
+                "\t\"T_FLOAT\" FLOAT(126), \n" +
+                "\t\"T_REAL\" FLOAT(63), \n" +
+                "\t\"T_NUMBER\" NUMBER, \n" +
+                "\t\"T_CHAR\" CHAR(255), \n" +
+                "\t\"T_VARCHAR2\" VARCHAR2(255), \n" +
+                "\t\"T_NVARCHAR2\" NVARCHAR2(255), \n" +
+                "\t\"T_BLOB\" BLOB, \n" +
+                "\t\"T_CLOB\" CLOB, \n" +
+                "\t\"T_DATE\" DATE, \n" +
+                "\t\"T_TIMESTAMP\" TIMESTAMP (6), \n" +
+                "\t\"T_DOUBLE\" FLOAT(126)\n" +
+                "   ) ";
     }
 }
