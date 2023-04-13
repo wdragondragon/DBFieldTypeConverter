@@ -12,7 +12,8 @@ public class DBFieldTypeConverter {
 //        DriverHelper driverHelper = new SqlserverHelper("192.168.1.150:1433", "master", "SA", "Zhjl.sqlserver", null);
 //        DriverHelper driverHelper = new PostgresqlHelper("192.168.1.150:15432", "jdragon", "jdragon", "Zhjl.postgres", null);
 //        DriverHelper driverHelper = new DMHelper("192.168.1.150:30236", "testdb", "SYSDBA", "SYSDBA", null);
-        DriverHelper driverHelper = new GaussDBHelper("10.194.186.223:11432", "postgres", "gaussdb", "Gauss@123", null);
+//        DriverHelper driverHelper = new GaussDBHelper("10.194.186.223:11432", "postgres", "gaussdb", "Gauss@123", null);
+        DriverHelper driverHelper = new ClickHouseHelper("192.168.1.150:18123", "my_database", "test", "test", null);
         driverHelper.createFullTypeTable();
         driverHelper.printFullType();
     }
