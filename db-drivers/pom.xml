@@ -71,5 +71,10 @@
             <artifactId>clickhouse-jdbc</artifactId>
             <version>0.3.2</version>
         </dependency>
+        <dependency>
+            <groupId>com.ibm.db2</groupId>
+            <artifactId>jcc</artifactId>
+            <version>11.5.4.0</version>
+        </dependency>
     </dependencies>
 </project>
