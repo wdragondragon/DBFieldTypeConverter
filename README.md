@@ -248,3 +248,80 @@ Password: root
 Port: 5258
 jdbcUrl: jdbc:gbase://127.0.0.1:5258/gbase
 ```
+
+
+#### 11.es6、7
+```shell
+#es7
+docker pull elasticsearch:7.12.0
+docker pull kibana:7.12.0
+
+docker network create es7
+
+#无映射卷启动
+docker run --name es7 -p 9200:9200 -p 9300:9300 \
+-e "discovery.type=single-node" \
+-e ES_JAVA_OPTS="-Xms512m -Xmx512m" \
+-d elasticsearch:7.12.0
+
+docker cp es7:/usr/share/elasticsearch/config /var/data/es7/
+docker cp es7:/usr/share/elasticsearch/data /var/data/es7/
+docker cp es7:/usr/share/elasticsearch/plugins /var/data/es7/
+docker stop es7
+docker rm es7
+
+#映射卷启动
+docker run --name es7 --net es7 -p 9200:9200 -p 9300:9300 \
+-e "discovery.type=single-node" \
+-e ES_JAVA_OPTS="-Xms512m -Xmx512m" \
+-v /var/data/es/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml \
+-v /var/data/es/data:/usr/share/elasticsearch/data \
+-v /var/data/es/plugins:/usr/share/elasticsearch/plugins \
+-d elasticsearch:7.12.0
+
+
+docker run -d --name kibana --net es7 \
+-e ELASTICSEARCH_HOSTS=http://es7:9200 \
+-p 5601:5601 kibana:7.12.0
+
+
+
+
+# es6
+docker pull elasticsearch:6.8.23
+docker pull kibana:6.8.23
+
+docker network create es6
+#无映射卷启动
+docker run --name es6 -p 9201:9200 -p 9301:9300 \
+-e "discovery.type=single-node" \
+-e ES_JAVA_OPTS="-Xms512m -Xmx512m" \
+-d elasticsearch:6.8.23
+
+docker cp es6:/usr/share/elasticsearch/config /var/data/es6/
+docker cp es6:/usr/share/elasticsearch/data /var/data/es6/
+docker cp es6:/usr/share/elasticsearch/plugins /var/data/es6/
+docker stop es6
+docker rm es6
+
+#映射卷启动
+docker run --name es6 --net es6 -p 9201:9200 -p 9301:9300 \
+-e "discovery.type=single-node" \
+-e ES_JAVA_OPTS="-Xms512m -Xmx512m" \
+-v /var/data/es6/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml \
+-v /var/data/es6/data:/usr/share/elasticsearch/data \
+-v /var/data/es6/plugins:/usr/share/elasticsearch/plugins \
+-d elasticsearch:6.8.23
+
+
+docker run -d --name kibana6 --net es6 \
+-e ELASTICSEARCH_HOSTS=http://es6:9200 \
+-p 5602:5601 kibana:6.8.23
+
+
+es7 127.0.0.1:9200
+kibana 127.0.0.1:5601
+
+es6 127.0.0.1:9201
+kibana 127.0.0.1 5602
+```
