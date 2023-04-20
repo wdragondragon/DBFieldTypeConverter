@@ -85,7 +85,33 @@
                     <groupId>org.slf4j</groupId>
                     <artifactId>slf4j-log4j12</artifactId>
                 </exclusion>
+                <exclusion>
+                    <groupId>org.apache.logging.log4j</groupId>
+                    <artifactId>log4j-slf4j-impl</artifactId>
+                </exclusion>
             </exclusions>
         </dependency>
+
+        <!-- Hana数据库连接 -->
+        <dependency>
+            <groupId>com.sap.cloud.db.jdbc</groupId>
+            <artifactId>ngdbc</artifactId>
+            <version>2.4.70</version>
+        </dependency>
+
+        <!-- Gbase数据库连接 -->
+        <dependency>
+            <groupId>com.gbase</groupId>
+            <artifactId>gbase</artifactId>
+            <version>8.3.81.53</version>
+        </dependency>
+
+        <!-- teradata -->
+        <dependency>
+            <groupId>com.teradata.jdbc</groupId>
+            <artifactId>terajdbc4</artifactId>
+            <version>17.20.00.12</version>
+        </dependency>
+
     </dependencies>
 </project>

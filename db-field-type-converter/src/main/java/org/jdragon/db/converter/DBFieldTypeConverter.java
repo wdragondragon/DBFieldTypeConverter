@@ -15,7 +15,10 @@ public class DBFieldTypeConverter {
 //        DriverHelper driverHelper = new GaussDBHelper("10.194.186.223:11432", "postgres", "gaussdb", "Gauss@123", null);
 //        DriverHelper driverHelper = new ClickHouseHelper("192.168.1.150:18123", "my_database", "test", "test", null);
 //        DriverHelper driverHelper = new DB2Helper("192.168.1.150:50000", "testdb", "db2inst1", "db2@123", null);
-        DriverHelper driverHelper = new HiveHelper("192.168.1.161:10000", "test", "", "", null);
+//        DriverHelper driverHelper = new HiveHelper("192.168.1.161:10000", "test", "", "", null);
+//        DriverHelper driverHelper = new HanaHelper("192.168.228.128:39013", "admin", "admin", "Cbw123456", null);
+//        DriverHelper driverHelper = new TeradataHelper("115.236.153.170", "41045","test", "dbc", "dbc", null);
+        DriverHelper driverHelper = new Gbase8aHelper("115.236.153.170:50186", "test", "gbase", "gbase20110531", null);
         driverHelper.createFullTypeTable();
         driverHelper.printFullType();
     }

@@ -305,6 +305,15 @@ public enum DataTypePool {
             case sqlserver:
                 names = SqlServerDataType.getNames();
                 break;
+            case hana:
+                names = HanaDataType.getNames();
+                break;
+            case teradata:
+                names = TeradataDataType.getNames();
+                break;
+            case gbase8a:
+                names = Gbase8aDataType.getNames();
+                break;
             default:
                 break;
         }

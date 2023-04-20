@@ -52,12 +52,16 @@ public enum SourcesEnum {
     fi_hive(23),
 
     hana(24),
+
     fi_hetu(25),
 
     mft(26),
 
     fi_sparksql(27),
-            ;
+
+    teradata(28),
+
+    gbase8a(29);
 
     @Getter
     private final int code;
