@@ -20,7 +20,7 @@ public enum PostgresqlDataTypeEnum implements DataTypeEnumInterface {
     private final String name;
 
     @Getter
-    private final String group;
+    private final DataTypeGroup group;
 
     @Getter
     private final Types sqlType;
@@ -28,10 +28,18 @@ public enum PostgresqlDataTypeEnum implements DataTypeEnumInterface {
     @Getter
     private final String alias;
 
-    PostgresqlDataTypeEnum(String name, String group, Types sqlType) {
+    @Getter
+    private final Integer maxLength;
+
+    @Getter
+    private final Integer maxPrecision;
+
+    PostgresqlDataTypeEnum(String name, DataTypeGroup group, Types sqlType, Integer maxLength, Integer maxPrecision) {
         this.name = name;
         this.alias = name;
         this.group = group;
         this.sqlType = sqlType;
+        this.maxLength = maxLength;
+        this.maxPrecision = maxPrecision;
     }
 }

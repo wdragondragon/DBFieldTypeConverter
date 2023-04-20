@@ -9,8 +9,19 @@ import java.sql.Types;
  */
 public interface DataTypeEnumInterface {
     String getAlias();
+
     String getName();
-    String getGroup();
+
+    DataTypeGroup getGroup();
 
     Types getSqlType();
+
+    default Integer getMaxLength() {
+        return -1;
+    }
+
+    default Integer getMaxPrecision() {
+        return -1;
+    }
+
 }
